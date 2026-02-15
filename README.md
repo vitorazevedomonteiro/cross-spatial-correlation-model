@@ -27,8 +27,9 @@ Returns:
                     
 IMs available are 'Sa', 'Saavg2', 'Saavg3', 'FIV3', 'PGA', and 'PGV'.
 For Sa the range of periods is [0.01, 5.0]s
-For Saavg2, Saavg3, and FIV3 the range of periods is [0.1, 4.0]s
-
+For Saavg2 the range of periods is [0.1, 3.0]s
+For Saavg3 the range of periods is [0.1, 2.0]s
+For FIV3 the range of periods is [0.1, 4.0]s
 
 from GetSpatialCorrelation import MAO2026
 
