@@ -10,13 +10,13 @@ Vitor A. Monteiro, Savvinos Aristeidou and Gerard J. O'Reilly (2026),
 
 """
 
-
+import re
 import numpy as np
 from scipy.interpolate import interp1d
 
-T_list = np.array(['SA(0.1)', 'SA(0.5)', 'SA(1.0)', 'SA(2.0)', 'SA(3.0)',
-                   'AVGSA2(0.1)', 'AVGSA2(0.5)', 'AVGSA2(1.0)', 'AVGSA2(2.0)', 'AVGSA2(3.0)',
-                   'AVGSA3(0.1)', 'AVGSA3(0.5)', 'AVGSA3(1.0)', 'AVGSA3(2.0)', 'AVGSA3(3.0)',
+T_list = np.array(['Sa(0.1)', 'Sa(0.5)', 'Sa(1.0)', 'Sa(2.0)', 'Sa(3.0)',
+                   'Saavg2(0.1)', 'Saavg2(0.5)', 'Saavg2(1.0)', 'Saavg2(2.0)', 'Saavg2(3.0)',
+                   'Saavg3(0.1)', 'Saavg3(0.5)', 'Saavg3(1.0)', 'Saavg3(2.0)', 'Saavg3(3.0)',
                    'FIV3(0.1)', 'FIV3(0.5)', 'FIV3(1.0)', 'FIV3(2.0)', 'FIV3(3.0)', 'PGA', 'PGV'])
 
 
@@ -52,8 +52,6 @@ nested_para = np.array([
 ])
 
 
-
-
 pcs_dict = {label: pcs[i, :] for i, label in enumerate(T_list)}
 
 def get_pc(label):
@@ -61,7 +59,6 @@ def get_pc(label):
         return pcs_dict[label]
 
     # Extract type and period
-    import re
     m = re.match(r"([A-Za-z0-9]+)\(([\d.]+)\)", label)
     if m:
         prefix, period = m.groups()
@@ -116,18 +113,14 @@ def GlobalMAO26(IM1, IM2, h):
     C_h_normalized = C_h / np.sqrt(Cii_0*Cjj_0)
     C_h_normalized[C_h_normalized <= 0.001] = 0
 
+    corr = C_h_normalized
     # If input was scalar, return scalar
     if np.isscalar(h):
-        return float(C_h_normalized[0])
+        return float(corr[0])
     else:
-        return C_h_normalized
+        return corr
 
 
-
-# # Example uSAge
-h = 8 #km
-corr = GlobalMAO26('SA(3.0)', 'FIV3(2.0)', h)
-print(corr)
 
 
 
