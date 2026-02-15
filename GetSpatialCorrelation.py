@@ -6,7 +6,10 @@ from pathlib import Path
 my_path = Path(__file__).parent
 
 sa_periods = np.array([0.01, 0.05, 0.075, 0.1, 0.2, 0.3, 0.4, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0])
-not_sa_periods = np.array([0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.75, 0.8, 0.9, 1.0, 1.2, 1.5, 2.0, 2.5, 3.0, 4.0])
+saavg2_periods = np.array([0.01, 0.05, 0.075, 0.1, 0.2, 0.3, 0.4, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0])
+saavg3_periods = np.array([0.01, 0.05, 0.075, 0.1, 0.2, 0.3, 0.4, 0.5, 0.75, 1.0, 1.5, 2.0])
+fiv3_periods = np.array([0.01, 0.05, 0.075, 0.1, 0.2, 0.3, 0.4, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 4.0])
+
 ims_priority = ['Sa', 'Saavg2', 'Saavg3', 'FIV3', 'PGA', 'PGV']
 
 
@@ -68,9 +71,9 @@ def interpolate_parameters(im1, im2, database):
     # Period maps for known IMs
     period_map = {
         'Sa': sa_periods,
-        'Saavg2': not_sa_periods,
-        'Saavg3': not_sa_periods,
-        'FIV3': not_sa_periods
+        'Saavg2': saavg2_periods,
+        'Saavg3': saavg3_periods,
+        'FIV3': fiv3_periods
     }
     
     if t1 is None and t2 is None:
@@ -174,9 +177,9 @@ def interpolate_pc(im1, im2, value, database):
 
     period_map = {
         'Sa': sa_periods,
-        'Saavg2': not_sa_periods,
-        'Saavg3': not_sa_periods,
-        'FIV3': not_sa_periods
+        'Saavg2': saavg2_periods,
+        'Saavg3': saavg3_periods,
+        'FIV3': fiv3_periods
     }
         
     if t1 is None and t2 is None:
