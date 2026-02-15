@@ -6,7 +6,7 @@ Additional figures, beyond those presented in the paper, are provided in the fol
 Monteiro, V.A, Aristeidou, S. and O’Reilly, G.J. (2026) ‘Spatial cross-correlation models for next-generation amplitude and cumulative intensity measures’, (under review)
 
 # How to use
-### Define the IM inter-distance. See example.py
+### Define the IM inter-distance. See pairwise_model_example.py
 
 ```python
 ---------------  MAO2026 function  ---------------
