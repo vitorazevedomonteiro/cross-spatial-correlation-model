@@ -58,22 +58,31 @@ def get_pc(label):
     if label in pcs_dict:
         return pcs_dict[label]
 
-    # Extract type and period
+    import re
     m = re.match(r"([A-Za-z0-9]+)\(([\d.]+)\)", label)
     if m:
         prefix, period = m.groups()
         period = float(period)
+
         # Collect all matching labels
         matching = [(float(re.match(rf"{prefix}\(([\d.]+)\)", l).group(1)), pcs[i,:])
                     for i,l in enumerate(T_list) if l.startswith(prefix+'(')]
+        if not matching:
+            raise ValueError(f"No known periods for label type '{prefix}'")
+
         periods = np.array([p for p,_ in matching])
         pcs_vals = np.array([v for _,v in matching])
+
+        # Check that period is within allowed range
+        if period < periods.min() or period > periods.max():
+            raise ValueError(f"Requested period {period} is outside allowed range "
+                             f"[{periods.min()}, {periods.max()}] for label '{prefix}'")
 
         log_periods = np.log(periods)
         log_target = np.log(period)
         interpolated_pc = np.zeros(pcs.shape[1])
         for i in range(pcs.shape[1]):
-            f = interp1d(log_periods, pcs_vals[:,i], kind='linear', fill_value='extrapolate')
+            f = interp1d(log_periods, pcs_vals[:,i], kind='linear')
             interpolated_pc[i] = f(log_target)
         return interpolated_pc
 
