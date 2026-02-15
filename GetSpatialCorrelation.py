@@ -402,7 +402,7 @@ def get_nested_parameters(im1, im2, database):
     return interpolate_parameters(im1, im2, database)
 
 
-def MAO2025(IM1, IM2, h, cluster=0, vs30=None):
+def MAO2026(IM1, IM2, h, cluster=0, vs30=None):
     """
     MAO2025 function
     
