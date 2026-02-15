@@ -45,12 +45,13 @@ from GetSpatialCorrelation import MAO2026
 
 # Example
 IM1 = "FIV3(0.6)"
-IM2 = "FIV3(0.6)"
+IM2 = "Saavg2(1.0)"
 import numpy as np
-h_distance = np.linspace(0,150,1500) #km
+h_distance = np.linspace(0,150,151) #km
 for h in h_distance:
     corr = MAO2026(IM1, IM2, h, cluster=0, vs30=2)
     print(corr)
 
-#print(f'Spatial Correlation between {IM1} and {IM2} at {h_distance} km is: {corr:.4f}')
+print(f'Spatial Correlation between {IM1} and {IM2} at {h_distance} km is: {corr:.4f}')
+
 
