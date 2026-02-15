@@ -1,5 +1,5 @@
 # Cross-spatial correlation model
-Inter-IM and intra-IM spatial correlation models for several IMs (PGA, PGV, Sa(T) at periods between 0.01–5.0 s, Saavg2(T), Saavg3(T), and FIV3(T) at periods between 0.1–4.0 s), using principal component analysis (PCA) and geostatistical tools.
+Inter-IM and intra-IM spatial correlation models for several IMs (PGA, PGV, Sa(T) at periods between 0.01–5.0 s, Saavg2(T), Saavg3(T), and FIV3(T) at periods between 0.1–2.0, 0.1-3.0, and 0.1-4.0s, respectively), using principal component analysis (PCA) and geostatistical tools.
 Additional figures, beyond those presented in the paper, are provided in the folder Data_Resources.
 
 # Reference
