@@ -9,6 +9,7 @@ Monteiro, V.A, Aristeidou, S. and O’Reilly, G.J. (2026) ‘Spatial cross-corre
 ### Use the pairwise model to calculate spatial correlation. See pairwise_model_example.py:
 
 ```python
+"""
 ---------------  MAO2026 function  ---------------
 Arguments:
     IM1 (float): First intensity measure.
@@ -30,6 +31,7 @@ For Sa the range of periods is [0.01, 5.0]s
 For Saavg2 the range of periods is [0.1, 3.0]s
 For Saavg3 the range of periods is [0.1, 2.0]s
 For FIV3 the range of periods is [0.1, 4.0]s
+"""
 
 from GetSpatialCorrelation import MAO2026
 
@@ -46,6 +48,7 @@ print(f'Spatial Correlation between {IM1} and {IM2} at {h_distance} km is: {corr
 ### Use the global model to calculate spatial correlation. See global_model_example.py:
 
 ```python
+"""
 ---------------  MAO2026 function  ---------------
 
 Arguments:
