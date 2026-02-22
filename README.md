@@ -72,7 +72,7 @@ IM2 = "Saavg2(1.0)"
 import numpy as np
 h_distance = np.linspace(0,150,151) #km
 for h in h_distance:
-    corr = GlobalMAO26(IM1, IM2, h)
+    corr = GlobalMAO26(IM1, IM2, h, npcs=3)
     print(corr)
 
 print(f'Spatial Correlation between {IM1} and {IM2} at {h_distance} km is: {corr:.4f}')
