@@ -3,7 +3,7 @@ Inter-IM and intra-IM spatial correlation models for several IMs (PGA, PGV, Sa(T
 Additional figures, beyond those presented in the paper, are provided in the folder Data_Resources.
 
 # Reference
-Monteiro, V.A, Aristeidou, S. and O’Reilly, G.J. (2026) ‘Spatial cross-correlation models for next-generation amplitude and cumulative intensity measures’, (under review)
+Monteiro, V.A, Aristeidou, S. and O’Reilly, G.J. (2026) ‘Spatial cross-correlation models for next-generation amplitude and cumulative intensity measures’, Earthquake Spectra, (accepted)
 
 # How to use
 ### Use the pairwise model to calculate spatial correlation. See pairwise_model_example.py:
