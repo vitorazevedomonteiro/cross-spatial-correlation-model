@@ -37,7 +37,7 @@ def nested_iso_corr(var_model, h):
     return cov / sill*0.959863331
 
 
-def nugget_corrn(var_model, h):
+def nugget_corr(var_model, h):
     """
     Pure nugget → correlation = 1 at h=0, else 0
     """
@@ -166,7 +166,7 @@ def GlobalMAO26(IM1, IM2, h, npcs):
         var_model = model_vario[k + 1]
 
         if var_model["type"] == "nug":
-            rho_k = nugget_corrn(var_model, h)
+            rho_k = nugget_corr(var_model, h)
         else:
             rho_k = nested_iso_corr(var_model, h)
 
