@@ -30,8 +30,8 @@ Arguments:
 Returns:
     corr (float): Correlation value retrieved from the chosen database,
                     for the given IM1, IM2, and distance h.
-                    
-                    
+
+
 IMs available are 'Sa', 'Saavg2', 'Saavg3', 'FIV3', 'PGA', and 'PGV'.
 For Sa the range of periods is [0.01, 5.0]s
 For Saavg2 the range of periods is [0.1, 3.0]s,
@@ -41,17 +41,16 @@ For FIV3 the range of periods is [0.1, 4.0]s
 """
 
 
+import numpy as np
 from GetSpatialCorrelation import MAO2026
 
 # Example
 IM1 = "FIV3(0.6)"
 IM2 = "Saavg2(1.0)"
-import numpy as np
-h_distance = np.linspace(0,150,151) #km
+h_distance = np.linspace(0, 150, 151)  # km
 for h in h_distance:
     corr = MAO2026(IM1, IM2, h, cluster=0, vs30=2)
     print(corr)
 
-print(f'Spatial Correlation between {IM1} and {IM2} at {h_distance} km is: {corr:.4f}')
-
-
+print(
+    f'Spatial Correlation between {IM1} and {IM2} at {h_distance} km is: {corr:.4f}')
